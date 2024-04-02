@@ -1,5 +1,25 @@
 <?php
 include '../Conn.php';
+
+// Query to fetch vaccine options from the database
+$query = "SELECT vaccine_name FROM vaccination_list";
+$result = mysqli_query($con, $query);
+
+// Check if the query was successful
+if ($result) {
+    // Initialize an empty string to store the options HTML
+    $optionsHTML = "";
+
+    // Loop through the results and create option elements
+    while ($row = mysqli_fetch_assoc($result)) {
+        $vaccineName = $row['vaccine_name'];
+        // Append each option to the optionsHTML string
+        $optionsHTML .= "<option value='$vaccineName'>$vaccineName</option>";
+    }
+} else {
+    // Handle the case where the query fails
+    $optionsHTML = "<option value=''>No options available</option>";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -118,26 +138,7 @@ include '../Conn.php';
 <form action="" method="post">
     <label for="vaccine">Select Vaccine:</label>
     <select id="vaccine" name="vaccine" required>
-        <option value="polio">Polio</option>
-        <option value="mmr">MMR (Measles, Mumps, and Rubella)</option>
-        <option value="dtap">DTaP (Diphtheria, Tetanus, and Pertussis)</option>
-        <option value="hib">Hib (Haemophilus influenzae type b)</option>
-        <option value="ipv">IPV (Inactivated Polio Vaccine)</option>
-        <option value="hepb">Hepatitis B</option>
-        <option value="hpv">HPV (Human Papillomavirus)</option>
-        <option value="varicella">Varicella (Chickenpox)</option>
-        <option value="pneumococcal">Pneumococcal</option>
-        <option value="rotavirus">Rotavirus</option>
-        <option value="meningococcal">Meningococcal</option>
-        <option value="flu">Flu (Influenza)</option>
-        <option value="mmrv">MMRV (MMR and Varicella)</option>
-        <option value="typhoid">Typhoid</option>
-        <option value="rabies">Rabies</option>
-        <option value="yellow_fever">Yellow Fever</option>
-        <option value="cholera">Cholera</option>
-        <option value="shingles">Shingles (Herpes Zoster)</option>
-        <option value="hepa">Hepatitis A</option>
-        <option value="bcg">BCG (Tuberculosis)</option>
+    <?php echo $optionsHTML; ?>
     </select><br>
 
     <label for="date">Date of Vaccination:</label>
