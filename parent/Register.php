@@ -10,7 +10,7 @@ include '../Conn.php';
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Include Font Awesome CSS -->
   <link rel="stylesheet" href="styles.css"> <!-- Include your custom CSS file -->
   <style>
-    /* Additional styles specific to parent.php */
+    
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -20,78 +20,93 @@ include '../Conn.php';
     width:100%;
     height: auto;
   }
-    .navbar {
-      background-color: #007bff;
-      padding: 10px 20px;
-    }
+  .navbar {
+    background-color: #007bff;
+    padding: 10px 20px;
+}
 
-    .navbar ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-    }
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
 
-    .navbar ul li {
-      display: inline;
-      margin-right: 20px;
-    }
+.navbar ul li {
+    display: inline-block; /* Changed from "inline" to "inline-block" */
+    margin-right: 20px;
+}
 
-    .navbar ul li a {
-      color: #fff;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
+.navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
 
-    .navbar ul li a:hover {
-      color: #f8f9fa;
-    }
+.navbar ul li a:hover {
+    color: #f8f9fa;
+}
 
     main{
         width:100%;
         height: auto;
     }
 
-    .container {
-      max-width: 100%;
-      margin: 20px auto;
-      padding: 0 20px;
-    }
+    #register h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
 
-    h2 {
-      margin-top: 0;
-    }
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+}
 
-    .register-form {
-      max-width: 340px;
-      margin: 20px auto;
-      padding: 20px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
+.register-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-    .register-form input[type="text"],
-    .register-form input[type="password"],
-    .register-form input[type="submit"] {
-      width: 320px;
-      height: auto;
-      padding: 5px;
-      margin-bottom: 20px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      outline: none;
-    }
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
 
-    .register-form input[type="submit"] {
-      background-color: #007bff;
-      color: #fff;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
 
-    .register-form input[type="submit"]:hover {
-      background-color: #0056b3;
-    }
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+a {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #007bff;
+}
+
   </style>
 </head>
 <body>
@@ -125,10 +140,6 @@ include '../Conn.php';
   <a href="./login.php">Already have an account? Login here.</a>
 </div>
 </section>
-<!-- Main Content -->
-<div class="container">
-  <!-- Your content here -->
-</div>
 </main>
 </body>
 </html>
