@@ -51,47 +51,6 @@ include '../Conn.php';
         height: auto;
     }
 
-    .container {
-      max-width: 100%;
-      margin: 20px auto;
-      padding: 0 20px;
-    }
-
-    h2 {
-      margin-top: 0;
-    }
-
-    .register-form {
-      max-width: 340px;
-      margin: 20px auto;
-      padding: 20px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .register-form input[type="text"],
-    .register-form input[type="password"],
-    .register-form input[type="submit"] {
-      width: 320px;
-      height: auto;
-      padding: 5px;
-      margin-bottom: 20px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      outline: none;
-    }
-
-    .register-form input[type="submit"] {
-      background-color: #007bff;
-      color: #fff;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .register-form input[type="submit"]:hover {
-      background-color: #0056b3;
-    }
   </style>
 </head>
 <body>
@@ -105,56 +64,16 @@ include '../Conn.php';
     <li><a href="#"><i class="fas fa-hospital"></i> Book Hospital</a></li>
     <li><a href="#"><i class="fas fa-hospital"></i> Request for Hospital</a></li>
     <li><a href="#"><i class="fas fa-file-medical"></i> Report of Vaccination Taken</a></li>
-    <li><a href="#register"><i class="fas fa-user-plus"></i> Register & Login</a></li>
+    <li><a href="./Register.php"><i class="fas fa-user-plus"></i> Register & Login</a></li>
   </ul>
 </div>
 </header>
 <main>
-<section id="register">
-<h2>Register</h2>
-<div class="container">
-  <form class="register-form" action="#" method="post">
-    <input type="text" name="fullname" placeholder="Full Name" required>
-    <input type="text" name="email" placeholder="Email" required>
-    <input type="text" name="email1" placeholder="Retype Email" required>
-    <input type="password" name="password" placeholder="Password" required>
-    <input type="password" name="password1" placeholder=" Retype Password" required>
-
-    <input type="submit" value="Register" name="sub">
-  </form>
-  <a href="./login.php">Already have an account? Login here.</a>
-</div>
-</section>
-<!-- Main Content -->
-<div class="container">
+  <section id="hero">
+<div class="hero-container">
   <!-- Your content here -->
 </div>
+  </section>
 </main>
 </body>
 </html>
-<?php
-if(isset($_POST['sub'])){ 
-    $name = $_POST['fullname'];
-    $email = $_POST['email1'];
-    $pass = $_POST['password'];
-    // $age = $_POST['age'];
-    $pass1 = password_hash($pass, PASSWORD_BCRYPT);
-
-    $el = "SELECT * FROM parent WHERE email='$email'";
-    $res = mysqli_query($con, $el);
-    $num = mysqli_num_rows($res);
-    if($num > 0){
-        echo "Email already exists.";
-    } else {
-        $qq = "INSERT INTO Parent (name, password, email) VALUES ('$name','$pass', '$email')";
-        $a = mysqli_query($con, $qq);
-        if($a) {
-            header("location: login.php");
-            exit;
-        } else {
-            echo "Error: " . mysqli_error($con);
-        }
-    }
-}
-
-?>

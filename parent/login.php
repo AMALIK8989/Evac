@@ -128,7 +128,7 @@ session_start();
 <?php
 if(isset($_POST['login'])){
     $email = $_POST['email1'];
-    $pass = $_POST['password1'];
+    $pass1 = $_POST['password1'];
 
     // Select user from the database using the provided email
     $sel = "SELECT * FROM parent WHERE email='$email'";

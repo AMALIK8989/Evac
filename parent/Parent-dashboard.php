@@ -94,7 +94,7 @@
 <!-- Navbar -->
 <div class="navbar">
   <ul>
-    <li><a href="#"><i class="fas fa-child"></i> Details of Child</a></li>
+    <li><a href="./detail.php"><i class="fas fa-child"></i> Details of Child</a></li>
     <li><a href="#"><i class="fas fa-calendar-alt"></i> Vaccination Dates</a></li>
     <li><a href="#"><i class="fas fa-hospital"></i> Book Hospital</a></li>
     <li><a href="#"><i class="fas fa-hospital"></i> Request for Hospital</a></li>
