@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Evac - E-Vaccination System</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="./style.css>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- <link rel="stylesheet" href="./style.css> -->
     <style>
         /* Reset CSS */
 * {
@@ -32,6 +33,7 @@ header {
     color: #fff;
     padding: 20px 0;
     width:100%;
+    height: auto;
 }
 
 .navbar {
@@ -62,77 +64,85 @@ header {
 /* Main Content Styles */
 main {
     padding: 40px 0;
+    width: 100%;
+    height: auto;
+}
+.hero {
+    width: 100%;
+    height: 600px;
+    background-color: #007bff;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
 }
 
-.content {
+#image {
+    background-image: url('./Hero-photo.jpeg');
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-text {
+    width: 50%;
+    padding: 0 20px;
+}
+
+/* Our work section */
+.our-work, .what-we-offer, .about-us {
+    width: 100%;
+    padding: 40px 0;
+}
+
+.work-content, .offer-content, .about-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.text {
-    flex: 1;
-    padding: 0 20px;
+.image, .offer-image, .about-image {
+    width: 50%;
 }
 
-.text h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
-.text p {
-    font-size: 1.1rem;
-    margin-bottom: 20px;
-}
-
-.btn {
-    display: inline-block;
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.btn:hover {
-    background-color: #0056b3;
-}
-
-.image img {
-    max-width: 100%;
+.image img, .offer-image img, .about-image img {
+    width: 100%;
     height: auto;
-    border-radius: 5px;
 }
 
+.work-text, .offer-text, .about-text {
+    width: 45%;
+}
 /* Media Query for Responsive Design */
 @media (min-width: 280px) and (max-width: 914px) {
-    .container {
-        padding: 0 10px;
-    }
-
-    .content {
+    .hero {
+        height: auto;
         flex-direction: column;
+        text-align: center;
     }
 
-    .text {
-        padding: 20px 0;
+    #image {
+        width: 100%;
+        height: 300px;
     }
 
-    .navbar {
+    .hero-text {
+        width: 100%;
+    }
+
+    .work-content, .offer-content, .about-content {
         flex-direction: column;
+        text-align: center;
     }
 
-    .navbar ul {
-        margin-top: 10px;
-        justify-content: center;
+    .image, .offer-image, .about-image {
+        width: 100%;
     }
 
-    .navbar ul li {
-        margin: 0 10px;
+    .work-text, .offer-text, .about-text {
+        width: 100%;
     }
 }
-
     </style>
 </head>
 <body>
@@ -141,66 +151,72 @@ main {
         <div class="navbar">
             <h1>Evac</h1>
             <ul>
-                <li><a href="#"><i class="fas fa-user"></i> Admin</a></li>
-                <li><a href="#"><i class="fas fa-user"></i> Parent</a></li>
-                <li><a href="#"><i class="fas fa-user"></i> Hospital</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a href="./admin-login.php"><i class="fas fa-user"></i> Admin</a></li>
+                <li><a href=""><i class="fas fa-user"></i> Parent</a></li>
+                <li><a href=""><i class="fas fa-user"></i> Hospital</a></li>
+                <li><a href="">About Us</a></li>
+                <li><a href="">Contact Us</a></li>
             </ul>
         </div>
+        <script>
+            
+            $(document).ready(function() {
+    // When the Admin link is clicked
+    $("a[href='./admin-login.php']").click(function() {
+        // Redirect to admin-login.php
+        window.location.href = $(this).attr("href");
+    });
+});
+
+        </script>
     </header>
 
     <!-- Main content -->
     <main>
-        <!-- Hero section -->
+      
         <section class="hero">
             <div class="content">
-                <div class="image">
-                    <img src="hero-image.jpg" alt="Hero Image">
-                </div>
-                <div class="text">
+                <div id="image"></div>
+                <div class="hero-text">
                     <h2>Why Evac?</h2>
                     <p>In the existing system, Vaccines are provided for infants and children under teenage by various aspects such as by attending school manually, leading to a chance that some may miss out on vaccination, which can result in loss of life or disease. The proposed solution is to change this manual system into an e-vaccination system.</p>
-                    <a href="#" class="btn">Read More</a>
                 </div>
             </div>
         </section>
-
+        
         <!-- Our work section -->
         <section class="our-work">
-            <div class="content">
+            <div class="work-content">
                 <div class="image">
                     <img src="our-work-image.jpg" alt="Our Work Image">
                 </div>
-                <div class="text">
+                <div class="work-text">
                     <h2>Our Work</h2>
                     <p>We aim to transform the vaccination process by providing an efficient and convenient platform for parents, hospitals, and administrators. By streamlining the process, we ensure that every child receives timely vaccinations, thus contributing to public health.</p>
-                    <a href="#" class="btn">View Projects</a>
                 </div>
             </div>
         </section>
-
+        
         <!-- What we offer section -->
         <section class="what-we-offer">
-            <div class="content">
+            <div class="offer-content">
                 <div class="image">
                     <img src="what-we-offer-image.jpg" alt="What We Offer Image">
                 </div>
-                <div class="text">
+                <div class="offer-text">
                     <h2>What We Offer</h2>
                     <p>We offer a comprehensive e-vaccination system that includes features for administrators, parents, and hospitals. Our platform ensures efficient scheduling, easy access to vaccination records, and seamless communication between all stakeholders.</p>
-                    <a href="#" class="btn">Explore Services</a>
                 </div>
             </div>
         </section>
-
+        
         <!-- About us section -->
         <section class="about-us">
-            <div class="content">
+            <div class="about-content">
                 <div class="image">
                     <img src="about-us-image.jpg" alt="About Us Image">
                 </div>
-                <div class="text">
+                <div class="about-text">
                     <h2>About Us</h2>
                     <p>Evac was created with the mission to revolutionize the vaccination process and improve public health outcomes. Our team is dedicated to providing an innovative solution that ensures every child receives timely vaccinations, thereby safeguarding their health and well-being.</p>
                     <a href="#" class="btn">Read More</a>
