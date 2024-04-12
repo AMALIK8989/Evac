@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Evac - E-Vaccination System</title>
+    <title>VaccTrack</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- <link rel="stylesheet" href="./style.css> -->
@@ -69,25 +69,23 @@ main {
 }
 .hero {
     width: 100%;
-    height: 600px;
-    background-color: #007bff;
+    height: 900px;
     color: #fff;
     display: flex;
-    align-items: center;
-    padding: 0 20px;
+    padding: 0px 20px;
+    margin-top: 20px;
 }
 
 #image {
     background-image: url('./Hero-photo.jpeg');
     background-size: cover;
+    background-repeat: no-repeat;
     width: 100%;
-    height: 100%;
+    height: 850px;
+    border: 4px solid black;
+    filter: grayscale(100%); 
 }
 
-.hero-text {
-    width: 50%;
-    padding: 0 20px;
-}
 
 /* Our work section */
 .our-work, .what-we-offer, .about-us {
@@ -113,8 +111,47 @@ main {
 .work-text, .offer-text, .about-text {
     width: 45%;
 }
-/* Media Query for Responsive Design */
-@media (min-width: 280px) and (max-width: 914px) {
+header {
+        background-color: #007bff;
+        color: #fff;
+        padding: 20px 0;
+        width: 100%;
+        height: auto;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .navbar h1 {
+        font-size: 1.8rem;
+        font-weight: bold;
+    }
+
+    .navbar ul {
+        display: flex;
+        list-style-type: none;
+    }
+
+    .navbar ul li {
+        margin-right: 20px;
+    }
+
+    .navbar ul li a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    /* Main Content Styles */
+    main {
+        padding: 40px 0;
+        width: 100%;
+        height: auto;
+    }
+
     .hero {
         height: auto;
         flex-direction: column;
@@ -123,11 +160,46 @@ main {
 
     #image {
         width: 100%;
-        height: 300px;
+        height: 500px;
     }
 
-    .hero-text {
+    .work-content, .offer-content, .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .image, .offer-image, .about-image {
         width: 100%;
+    }
+
+    .work-text, .offer-text, .about-text {
+        width: 100%;
+    }
+
+
+@media screen and (max-width: 914px) {
+    /* Reset Container */
+    .container {
+        max-width: 100%;
+        margin: 0;
+        padding: 0 10px;
+    }
+
+    /* Main Content Styles */
+    main {
+        padding: 40px 0;
+        width: 100%;
+        height: auto;
+    }
+
+    .hero {
+        height: auto;
+        width: 100%;
+    }
+
+    #image {
+        width: 100%;
+        height: 500px;
     }
 
     .work-content, .offer-content, .about-content {
@@ -143,13 +215,169 @@ main {
         width: 100%;
     }
 }
+@media only screen and (max-width: 280px) {
+    /* Reset Container */
+    .container {
+        max-width: 100%;
+        margin: 0;
+        padding: 0 10px;
+    }
+
+    /* Header Styles */
+    header {
+        background-color: #007bff;
+        color: #fff;
+        padding: 20px 0;
+        width: 100%;
+        height: auto;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .navbar h1 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .navbar ul {
+        display: flex;
+        flex-direction: column;
+        list-style-type: none;
+    }
+
+    .navbar ul li {
+        margin-bottom: 10px;
+    }
+
+    .navbar ul li a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    /* Main Content Styles */
+    main {
+        padding: 40px 0;
+        width: 100%;
+        height: auto;
+    }
+
+    .hero {
+        height: auto;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        padding: 0px 0px !important;
+    }
+  
+    #image {
+    background-repeat: no-repeat;
+    background-image: url('./Hero-photo\ small\ screens.jpeg');
+    }
+
+    .work-content, .offer-content, .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .image, .offer-image, .about-image {
+        width: 100%;
+    }
+
+    .work-text, .offer-text, .about-text {
+        width: 100%;
+    }
+}
+@media only screen and (min-width: 281px) and (max-width: 487px) {
+    /* Reset Container */
+    .container {
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 0 10px;
+    }
+
+    /* Header Styles */
+    header {
+        background-color: #007bff;
+        color: #fff;
+        padding: 20px 0;
+        width: 100%;
+        height: auto;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .navbar h1 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .navbar ul {
+        display: flex;
+        flex-direction: column;
+        list-style-type: none;
+    }
+
+    .navbar ul li {
+        margin-bottom: 10px;
+    }
+
+    .navbar ul li a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    /* Main Content Styles */
+    main {
+        padding: 40px 0;
+        width: 100%;
+        height: auto;
+    }
+
+    .hero {
+        height: auto;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #image {
+        width: 100%;
+        height: 500px;
+    }
+
+    .work-content, .offer-content, .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .image, .offer-image, .about-image {
+        width: 100%;
+    }
+
+    .work-text, .offer-text, .about-text {
+        width: 100%;
+    }
+}
+
     </style>
 </head>
 <body>
     <!-- Header -->
     <header>
         <div class="navbar">
-            <h1>Evac</h1>
+            <h1>VaccTrack
+            </h1>
             <ul>
                 <li><a href="./admin-login.php"><i class="fas fa-user"></i> Admin</a></li>
                 <li><a href=""><i class="fas fa-user"></i> Parent</a></li>
@@ -176,10 +404,7 @@ main {
       
         <section class="hero">
             <div class="content">
-                <div id="image"></div>
-                <div class="hero-text">
-                    <h2>Why Evac?</h2>
-                    <p>In the existing system, Vaccines are provided for infants and children under teenage by various aspects such as by attending school manually, leading to a chance that some may miss out on vaccination, which can result in loss of life or disease. The proposed solution is to change this manual system into an e-vaccination system.</p>
+                <div id="image">
                 </div>
             </div>
         </section>

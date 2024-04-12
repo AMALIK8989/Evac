@@ -159,21 +159,28 @@ if(isset($_POST['det'])){
     $gen = $_POST['child_gender'];
    
     // Check if email already exists
-    $el = "SELECT * FROM child WHERE name='$name'";
+    $el = "SELECT * FROM child WHERE fullname='$name'";
     $res = mysqli_query($con, $el);
-    $num = mysqli_num_rows($res);
-    if($num > 0){
-        echo "name already exists.";
-    } else {
-        // Insert new user into database
-        $qq = "INSERT INTO child (name, age, gender) VALUES ('$name','$age', '$gen')";
-        $a = mysqli_query($con, $qq);
-        if($a) {
-            header("location: vaccination details.php");
-            exit;
+
+    // Check if query executed successfully
+    if($res) {
+        $num = mysqli_num_rows($res);
+        if($num > 0){
+            echo "name already exists.";
         } else {
-            echo "Error: " . mysqli_error($con);
+            // Insert new user into database
+            $qq = "INSERT INTO child (fullname, age, gender) VALUES ('$name','$age', '$gen')";
+            $a = mysqli_query($con, $qq);
+            if($a) {
+                header("location: vaccination det.php");
+                exit;
+            } else {
+                echo "Error: " . mysqli_error($con);
+            }
         }
+    } else {
+        echo "Error executing query: " . mysqli_error($con);
     }
 }
+
 ?>

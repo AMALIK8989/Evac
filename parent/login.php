@@ -127,30 +127,30 @@ session_start();
 </html>
 <?php
 if(isset($_POST['login'])){
-    $email = $_POST['email1'];
-    $pass1 = $_POST['password1'];
+  $email = $_POST['email1'];
+  $pass1 = $_POST['password1'];
 
-    // Select user from the database using the provided email
-    $sel = "SELECT * FROM parent WHERE email='$email'";
-    $res = mysqli_query($con, $sel);
+  // Select user from the database using the provided email
+  $sel = "SELECT * FROM parent WHERE email='$email'";
+  $res = mysqli_query($con, $sel);
 
-    // Check if the user exists
-    if(mysqli_num_rows($res) > 0){
-        $fe = mysqli_fetch_assoc($res);
-        // Verify the provided password with the hashed password from the database
-        $dbpass = $fe['password']; // Assuming the column name is 'password' in your database
-        if(password_verify($pass, $dbpass)){
-            // Passwords match, set session and redirect to dashboard
-            $_SESSION['abc'] = $fe['name'];
-            header("location: parent-dashboard.php");
-            exit; // Stop further execution after redirecting
-        } else {
-            // Passwords don't match
-            echo "Password does not match";
-        }
-    } else {
-        // User not found
-        echo "Email is not registered";
-    }
+  // Check if the user exists
+  if(mysqli_num_rows($res) > 0){
+      $fe = mysqli_fetch_assoc($res);
+      // Verify the provided password with the hashed password from the database
+      $dbpass = $fe['password']; // Assuming the column name is 'password' in your database
+      if(password_verify($pass1, $dbpass)){
+          // Passwords match, set session and redirect to dashboard
+          $_SESSION['abc'] = $fe['name'];
+          header("location: parent-dashboard.php");
+          exit; // Stop further execution after redirecting
+      } else {
+          // Passwords don't match
+          echo "Password does not match";
+      }
+  } else {
+      // User not found
+      echo "Email is not registered";
+  }
 }
 ?>

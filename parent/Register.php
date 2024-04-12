@@ -147,6 +147,7 @@ a {
 if(isset($_POST['sub'])){ 
     $name = $_POST['fullname'];
     $email = $_POST['email'];
+    $email1 = $_POST['email1'];
     $pass = $_POST['password'];
     $pass1 = $_POST['password1']; // Corrected input name for retype password
 
@@ -155,19 +156,22 @@ if(isset($_POST['sub'])){
         echo "Passwords do not match";
         exit; // Stop further execution
     }
+    if($email !== $email1) {
+        echo "email do not match";
+        exit; // Stop further execution
+    }
 
-    // Hash the password
     $hashed_password = password_hash($pass, PASSWORD_BCRYPT);
 
     // Check if email already exists
-    $el = "SELECT * FROM parent WHERE email='$email'";
+    $el = "SELECT * FROM parent WHERE email='$email1'";
     $res = mysqli_query($con, $el);
     $num = mysqli_num_rows($res);
     if($num > 0){
         echo "Email already exists.";
     } else {
         // Insert new user into database
-        $qq = "INSERT INTO Parent (name, password, email) VALUES ('$name','$hashed_password', '$email')";
+        $qq = "INSERT INTO Parent (fullname, password, repassword, email) VALUES ('$name','$hashed_password','$pass1','$email1')";
         $a = mysqli_query($con, $qq);
         if($a) {
             header("location: login.php");
@@ -177,4 +181,5 @@ if(isset($_POST['sub'])){
         }
     }
 }
+
 ?>

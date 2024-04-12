@@ -51,8 +51,7 @@ if(isset($_GET['id'])) {
   </ul>
 </div>
 <main>
-  <section id="child-det">
-  <div class="content">
+<div class="content">
 <label for="child">Select Available Childrens:</label>
     <select id="child-names" name="children" required>
     <?php echo $optionsHTML; ?>
@@ -79,8 +78,6 @@ if(isset($_GET['id'])) {
 });
      </script>
 </div>
-</section>
-
 </main>
 
 <div class="footer">

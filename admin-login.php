@@ -66,9 +66,11 @@ session_start();
   </form>
 </div>
 
-<div class="footer">
+<section id="foot">
+<div id="footer">
   &copy; 2024 Your Company Name. All rights reserved.
 </div>
+</section>
 
 </body>
 </html>

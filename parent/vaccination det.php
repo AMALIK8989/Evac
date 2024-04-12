@@ -20,6 +20,21 @@ if ($result) {
     // Handle the case where the query fails
     $optionsHTML = "<option value=''>No options available</option>";
 }
+// // Create table 'vaccinesel' with foreign key restraint and auto-increment ID
+// $sql = "CREATE TABLE vaccinesel (
+//   id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+//   vaccine VARCHAR(50) NOT NULL,
+//   date DATE NOT NULL,
+//   time TIME NOT NULL
+// )";
+// mysqli_query($con,$sql);
+// $sql = "SELECT v.id, v.vaccine, v.date, v.time, c.child_name, h.hospital_name 
+//         FROM vaccinesel v 
+//         INNER JOIN child c ON v.child_id = c.id
+//         INNER JOIN hospital_list h ON v.hospital_id = h.id";
+
+// $result = mysqli_query($con,$sql);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -162,14 +177,14 @@ if(isset($_POST['vac'])){
     $time = $_POST['time'];
    
     // Check if vaccination details already exist
-    $el = "SELECT * FROM vaccination WHERE vaccine='$vac' AND date='$date' AND time='$time'";
+    $el = "SELECT * FROM vaccinesel WHERE vaccine='$vac' AND date='$date' AND time='$time'";
     $res = mysqli_query($con, $el);
     $num = mysqli_num_rows($res);
     if($num > 0){
         echo "Vaccination details already exist for this vaccine, date, and time.";
     } else {
         // Insert new vaccination details into database
-        $qq = "INSERT INTO vaccination (vaccine, date, time) VALUES ('$vac', '$date', '$time')";
+        $qq = "INSERT INTO vaccinesel (vaccine, date, time) VALUES ('$vac', '$date', '$time')";
         $a = mysqli_query($con, $qq);
         if($a) {
             header("location: ");
