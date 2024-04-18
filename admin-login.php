@@ -1,5 +1,5 @@
 <?php
-include 'conn.php';
+include 'Conn.php';
 session_start();
 ?>
 <!DOCTYPE html>

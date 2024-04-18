@@ -56,19 +56,18 @@
     text-align: center;
     width: 100%;
     height: auto;
-    ma
   }
-  
-  .content {
-    display: inline-block;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    width: 60%;
-    margin-top:50px;
 
-  }
+  .content {
+    display: inline-block; /* Display as inline-block */
+    padding: 20px; /* Add padding */
+    border: 1px solid #ccc; /* Add border */
+    border-radius: 5px; /* Add border radius */
+    margin-bottom: 20px; /* Add bottom margin */
+    width: 60%; /* Set width to 60% of the container */
+    margin: 50px auto; /* Center horizontally and add margin to the top */
+}
+
   
   label {
     font-weight: bold;
