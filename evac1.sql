@@ -102,12 +102,7 @@ INSERT INTO `parent` (`id`, `fullname`, `email`, `password`, `repassword`) VALUE
 -- Table structure for table `vaccination_list`
 --
 
-CREATE TABLE `vaccination_list` (
-  `vaccine_id` int(11) NOT NULL,
-  `vaccine_name` varchar(255) NOT NULL,
-  `status` enum('available','not available') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
+c
 --
 -- Dumping data for table `vaccination_list`
 --
