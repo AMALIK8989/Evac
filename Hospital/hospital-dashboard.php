@@ -169,3 +169,29 @@ input[type="submit"]:hover {
     </script>
 </body>
 </html>
+<?php
+if(isset($_POST['submit'])) {
+    // Check if 'hospital' and 'status' keys are set in $_POST array
+    if(isset($_POST['hospital']) && isset($_POST['status'])) {
+        $hospital_id = $_POST['hospital'];
+        $status = $_POST['status'];
+
+        // Update the hospital_list table with the selected status
+        // Ensure that $connection is properly initialized with a mysqli connection object
+        if($connection) {
+            $update_query = "UPDATE hospital_list SET status = '$status' WHERE id = '$hospital_id'";
+            $update_result = mysqli_query($connection, $update_query);
+
+            if($update_result) {
+                echo "Vaccine status updated successfully.";
+            } else {
+                echo "Error updating vaccine status.";
+            }
+        } else {
+            echo "Database connection failed.";
+        }
+    } else {
+        echo "Form data not received.";
+    }
+}
+?>

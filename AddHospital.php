@@ -14,13 +14,14 @@ $result = mysqli_query($con, $query);
     <title>Hospital Vaccines Information</title>
     <link rel="stylesheet" href="./style.css"> <!-- Create a CSS file for custom styles -->
     <style>
-          #hospital-det {
+   #hospital-det {
     text-align: center;
-    padding: 20px;
-    width: 80%;
-    margin: 50px auto;
+    padding: 50px;
+    width: 100%;
+    /* margin: 50px auto; */
     border: 1px solid #ccc;
     border-radius: 5px;
+    margin-left:10%;
   }
   
   #hospital-det h1 {
@@ -28,8 +29,10 @@ $result = mysqli_query($con, $query);
   }
   
   #hospital-det table {
-    width: 100%;
+    width: 80%;
     border-collapse: collapse;
+    margin-left:10%;
+ 
   }
   
   #hospital-det th, #hospital-det td {
@@ -48,11 +51,13 @@ $result = mysqli_query($con, $query);
   /* Add hospital section */
   #add-hospital {
     text-align: center;
-    padding: 20px;
-    width: 80%;
-    margin: 50px auto;
+    padding: 10px;
+    width: 90%;
+    /* margin: 50px auto; */
     border: 1px solid #ccc;
     border-radius: 5px;
+    margin-left:10%;
+    margin-top:10%;
   }
   
   #add-hospital h2 {
@@ -60,8 +65,9 @@ $result = mysqli_query($con, $query);
   }
   
   #add-hospital form {
-    width: 70%;
+    width: 80%;
     margin: 0 auto;
+    margin-left:10%;
   }
   
   #add-hospital form label {
@@ -136,6 +142,9 @@ $result = mysqli_query($con, $query);
 </div>
 </section>
 </main>
+<div class="footer">
+  &copy; 2024 Your Company Name. All rights reserved.
+</div>
 </body>
 </html>
 <?php
