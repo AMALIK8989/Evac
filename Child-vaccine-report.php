@@ -76,12 +76,21 @@ button[type="submit"]:hover {
     <li><a href="#" class="active"><i class="fas fa-users"></i>All Child Details</a></li>
     <li><a href=""><i class="fas fa-calendar-alt"></i>Date & Time of Vaccination</a></li>
     <li><a href=""><i class="fas fa-clipboard"></i>Report of Vaccination</a></li>
-    <li><a href=""><i class="fas fa-syringe"></i>List of Vaccine</a></li>
+    <li class="vac"><a href="./vaccine-list.php"><i class="fas fa-syringe"></i>List of Vaccine</a></li>
     <li><a href=""><i class="fas fa-handshake"></i>Request from Parents</a></li>
     <li><a href=""><i class="fas fa-hospital"></i>Add Hospital</a></li>
     <li><a href=""><i class="fas fa-list"></i>List of Hospitals</a></li>
     <li><a href=""><i class="fas fa-book"></i>Booking Details</a></li>
   </ul>
+  <script>
+    $(document).ready(function() {
+    $('.vac a').click(function(event) {
+      event.preventDefault(); // Prevent default anchor tag behavior (navigation)
+      var href = $(this).attr('href'); // Get the target URL from the link's href attribute
+      window.location.href = href; // Redirect the browser to the target URL
+    });
+});
+  </script>
 </div>
 
     <section id="report-sect">

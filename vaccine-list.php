@@ -104,7 +104,7 @@ if ($result) {
 <section id="vaccine-listed">
 <div class="main-content">
     <h2>List of Vaccines (Available/Unavailable)</h2>
-    <label for="hospital_list">Select Available Childrens:</label>
+    <label for="hospital_list">Select Available Hospitals:</label>
     <select id="hospital-list" name="hospitallist" required>
     <?php echo $optionsHTML; ?>
     </select><br>

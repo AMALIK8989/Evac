@@ -32,7 +32,8 @@ if(isset($_GET['id'])) {
   <title>Admin Dashboard</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="stylesheet" href="./style.css"> <!-- Create a CSS file for custom styles -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </head>
 <body>
 
@@ -42,13 +43,31 @@ if(isset($_GET['id'])) {
   <ul>
     <li><a href="#" class="active"><i class="fas fa-users"></i>All Child Details</a></li>
     <li><a href=""><i class="fas fa-calendar-alt"></i>Date & Time of Vaccination</a></li>
-    <li><a href=""><i class="fas fa-clipboard"></i>Report of Vaccination</a></li>
-    <li><a href=""><i class="fas fa-syringe"></i>List of Vaccine</a></li>
+    <li class="rep"><a href="./Child-vaccine-report.php"><i class="fas fa-clipboard"></i>Report of Vaccination</a></li>
+    <li class="vac"><a href=""><i class="fas fa-syringe"></i>List of Vaccine</a></li>
     <li><a href=""><i class="fas fa-handshake"></i>Request from Parents</a></li>
     <li><a href=""><i class="fas fa-hospital"></i>Add Hospital</a></li>
     <li><a href=""><i class="fas fa-list"></i>List of Hospitals</a></li>
     <li><a href=""><i class="fas fa-book"></i>Booking Details</a></li>
   </ul>
+  <script>
+$(document).ready(function() {
+    $('.rep a').click(function(event) {
+      event.preventDefault(); // Prevent default anchor tag behavior (navigation)
+      var href = $(this).attr('href'); // Get the target URL from the link's href attribute
+      window.location.href = href; // Redirect the browser to the target URL
+    });
+});
+  </script>
+  <script>
+    $(document).ready(function() {
+    $('.vac a').click(function(event) {
+      event.preventDefault(); // Prevent default anchor tag behavior (navigation)
+      var href = $(this).attr('href'); // Get the target URL from the link's href attribute
+      window.location.href = href; // Redirect the browser to the target URL
+    });
+});
+  </script>
 </div>
 <main>
   <section id="child-det">
