@@ -9,7 +9,7 @@ include 'Conn.php';
 // $result = mysqli_query($con, $query);
 // Query to fetch vaccine options from the database
 
-$query = "SELECT hospital_name FROM hospital_list";
+$query = "SELECT hospital_name FROM hospital";
 $result = mysqli_query($con, $query);
 
 // Check if the query was successful
@@ -91,14 +91,28 @@ if ($result) {
   <h2>Admin Dashboard</h2>
   <ul>
     <li><a href="#" class="active"><i class="fas fa-users"></i>All Child Details</a></li>
-    <li><a href=""><i class="fas fa-calendar-alt"></i>Date & Time of Vaccination</a></li>
-    <li><a href=""><i class="fas fa-clipboard"></i>Report of Vaccination</a></li>
-    <li><a href=""><i class="fas fa-syringe"></i>List of Vaccine</a></li>
-    <li><a href=""><i class="fas fa-handshake"></i>Request from Parents</a></li>
-    <li><a href=""><i class="fas fa-hospital"></i>Add Hospital</a></li>
-    <li><a href=""><i class="fas fa-list"></i>List of Hospitals</a></li>
-    <li><a href=""><i class="fas fa-book"></i>Booking Details</a></li>
+    <li class="date"><a href="./Date & Time Of Vaccination.php"><i class="fas fa-calendar-alt"></i>Date & Time of Vaccination</a></li>
+    <li class="rep"><a href="./Child-vaccine-report.php"><i class="fas fa-clipboard"></i>Report of Vaccination</a></li>
+    <li class="vac"><a href="./vaccine-list.php"><i class="fas fa-syringe"></i>List of Vaccine</a></li>
+    <li class="req"><a href="./parent-request.php"><i class="fas fa-handshake"></i>Request from Parents</a></li>
+    <li class="add"><a href="./AddHospital.php"><i class="fas fa-hospital"></i>Add Hospital</a></li>
+    <li class="lish"><a href="./ListOfHospital.php"><i class="fas fa-list"></i>List of Hospitals</a></li>
+    <li class="bookdet"><a href="./Booking-details.php"><i class="fas fa-book"></i>Booking Details</a></li>
   </ul>
+<script>
+$(document).ready(function() {
+  // Function to handle click events on anchor tags
+  function handleAnchorClick(event) {
+    // Get the target URL from the link's href attribute
+    var href = $(this).attr('href');
+    // Redirect the browser to the target URL
+    window.location.href = href;
+  }
+
+  // Attach click event handlers to anchor tags with specific classes
+  $('.rep a, .vac a, .date a, .req a, .add a, .lish a, .bookdet a').click(handleAnchorClick);
+});
+</script>
 </div>
 
 <section id="vaccine-listed">

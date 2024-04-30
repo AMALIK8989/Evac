@@ -2,7 +2,7 @@
 include 'Conn.php';
 session_start();
 // Fetch hospital vaccine information
-$query = "SELECT * FROM hospital_list";
+$query = "SELECT * FROM hospital";
 $result = mysqli_query($con, $query);
 ?>
 
@@ -14,77 +14,72 @@ $result = mysqli_query($con, $query);
     <title>Hospital Vaccines Information</title>
     <link rel="stylesheet" href="./style.css"> <!-- Create a CSS file for custom styles -->
     <style>
-   #hospital-det {
-    text-align: center;
-    padding: 50px;
-    width: 100%;
-    /* margin: 50px auto; */
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-left:10%;
-  }
-  
-  #hospital-det h1 {
-    margin-bottom: 20px;
-  }
-  
-  #hospital-det table {
-    width: 80%;
-    border-collapse: collapse;
-    margin-left:10%;
- 
-  }
-  
-  #hospital-det th, #hospital-det td {
-    border: 1px solid #ccc;
-    padding: 8px;
-  }
-  
-  #hospital-det th {
-    background-color: #f2f2f2;
-  }
-  
-  #hospital-det td a {
-    margin-right: 5px;
-  }
-  
-  /* Add hospital section */
-  #add-hospital {
-    text-align: center;
-    padding: 10px;
-    width: 90%;
-    /* margin: 50px auto; */
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-left:10%;
-    margin-top:10%;
-  }
-  
-  #add-hospital h2 {
-    margin-bottom: 20px;
-  }
-  
-  #add-hospital form {
-    width: 80%;
-    margin: 0 auto;
-    margin-left:10%;
-  }
-  
-  #add-hospital form label {
-    display: block;
-    margin-bottom: 10px;
-  }
-  
-  #add-hospital form input[type="text"],
-  #add-hospital form input[type="number"],
-  #add-hospital form input[type="submit"] {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-  }
+   #hospital-det, #add-hospital {
+  margin-top: 50px; /* Adjust as needed */
+  padding: 20px;
+}
+
+#hospital-det h1, #add-hospital h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#hospital-det table, #add-hospital form {
+  max-width: 800px; /* Adjust as needed */
+  margin: 0 auto;
+}
+
+/* Table styles */
+#hospital-det table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#hospital-det th, #hospital-det td, #add-hospital label, #add-hospital input[type="text"], #add-hospital input[type="number"], #add-hospital input[type="submit"] {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+#hospital-det th {
+  background-color: #f2f2f2;
+  text-align: left;
+}
+
+#hospital-det td {
+  text-align: center;
+}
+
+#hospital-det td a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+#hospital-det td a:hover {
+  text-decoration: underline;
+}
+
+/* Form styles */
+#add-hospital label, #add-hospital input[type="text"], #add-hospital input[type="number"], #add-hospital input[type="submit"] {
+  display: block;
+  margin-bottom: 10px;
+}
+
+#add-hospital input[type="text"], #add-hospital input[type="number"], #add-hospital input[type="submit"] {
+  width: calc(100% - 22px); /* Adjust for padding and border */
+}
+
+#add-hospital input[type="submit"] {
+  width: auto;
+  margin-top: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+#add-hospital input[type="submit"]:hover {
+  background-color: #0056b3;
+}
     </style>
 </head>
 <body>
@@ -155,7 +150,7 @@ $vaccine_name = $_POST['vaccine_name'];
 $doses_available = $_POST['doses_available'];
 
 // Insert data into database
-$query = "INSERT INTO hospital_list (hospital_name, vaccine_name, doses_available) VALUES ('$hospital_name', '$vaccine_name', '$doses_available')";
+$query = "INSERT INTO hospital (hospital_name, vaccine_name, doses_available) VALUES ('$hospital_name', '$vaccine_name', '$doses_available')";
 mysqli_query($con, $query);
 
 // Redirect back to index.php

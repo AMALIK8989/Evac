@@ -379,29 +379,14 @@ header {
             <h1>VaccTrack
             </h1>
             <ul>
-                <li><a href="./admin-login.php"><i class="fas fa-user"></i> Admin</a></li>
-                <li><a href="./parent/parent.php" id="parent"><i class="fas fa-user"></i> Parent</a></li>
-                <li><a href=""><i class="fas fa-user"></i> Hospital</a></li>
+                <li class="admin"><a href="./admin-login.php"><i class="fas fa-user"></i> Admin</a></li>
+                <li class="parent"><a href="./parent/parent.php" id="parent"><i class="fas fa-user"></i> Parent</a></li>
+                <li class="hospital"><a href="./Hospital/hospital-login.php"><i class="fas fa-user"></i> Hospital</a></li>
                 <li><a href="">About Us</a></li>
                 <li><a href="">Contact Us</a></li>
             </ul>
         </div>
-        <script>
-            
-            $(document).ready(function() {
-    // When the Admin link is clicked
-    $("a[href='./admin-login.php']").click(function() {
-        // Redirect to admin-login.php
-        window.location.href = $(this).attr("href");
-    });
-});
-$(document).ready(function() {
-    // When the Admin link is clicked
-    $("a[href='./parent/parent.php']").click(function() {
-        // Redirect to admin-login.php
-        window.location.href = $(this).attr("href");
-    });
-});
+        <script src="./admin.js">
         </script>
     </header>
 

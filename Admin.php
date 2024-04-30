@@ -1,10 +1,12 @@
 <?php
 include 'Conn.php';
+
+// Check if the child ID is set in the URL parameters
 if(isset($_GET['id'])) {
     $childID = $_GET['id'];
   
-    // Query to fetch child details
-    $query = "SELECT * FROM child WHERE id = $childID";
+    // Query to fetch child details based on the provided ID
+    $query = "SELECT * FROM Child WHERE child_id = $childID";
     $result = mysqli_query($con, $query);
 
     if ($result) {
@@ -13,8 +15,8 @@ if(isset($_GET['id'])) {
 
         // Loop through the results and create option elements
         while ($row = mysqli_fetch_assoc($result)) {
-            $childID = $row['id']; // Assuming 'id' is the column name for the child ID
-            $childName = $row['name'];
+            $childID = $row['child_id']; // Assuming 'child_id' is the column name for the child ID
+            $childName = $row['child_name'];
             // Append each option to the optionsHTML string
             $optionsHTML .= "<option value='$childID'>$childName</option>";
         }
@@ -42,60 +44,55 @@ if(isset($_GET['id'])) {
   <h2>Admin Dashboard</h2>
   <ul>
     <li><a href="#" class="active"><i class="fas fa-users"></i>All Child Details</a></li>
-    <li><a href=""><i class="fas fa-calendar-alt"></i>Date & Time of Vaccination</a></li>
+    <li class="date"><a href="./Date & Time Of Vaccination.php"><i class="fas fa-calendar-alt"></i>Date & Time of Vaccination</a></li>
     <li class="rep"><a href="./Child-vaccine-report.php"><i class="fas fa-clipboard"></i>Report of Vaccination</a></li>
-    <li class="vac"><a href=""><i class="fas fa-syringe"></i>List of Vaccine</a></li>
-    <li><a href=""><i class="fas fa-handshake"></i>Request from Parents</a></li>
-    <li><a href=""><i class="fas fa-hospital"></i>Add Hospital</a></li>
-    <li><a href=""><i class="fas fa-list"></i>List of Hospitals</a></li>
-    <li><a href=""><i class="fas fa-book"></i>Booking Details</a></li>
+    <li class="vac"><a href="./vaccine-list.php"><i class="fas fa-syringe"></i>List of Vaccine</a></li>
+    <li class="req"><a href="./parent-request.php"><i class="fas fa-handshake"></i>Request from Parents</a></li>
+    <li class="add"><a href="./AddHospital.php"><i class="fas fa-hospital"></i>Add Hospital</a></li>
+    <li class="lish"><a href="./ListOfHospital.php"><i class="fas fa-list"></i>List of Hospitals</a></li>
+    <li class="bookdet"><a href="./Booking-details.php"><i class="fas fa-book"></i>Booking Details</a></li>
   </ul>
-  <script>
+<script>
 $(document).ready(function() {
-    $('.rep a').click(function(event) {
-      event.preventDefault(); // Prevent default anchor tag behavior (navigation)
-      var href = $(this).attr('href'); // Get the target URL from the link's href attribute
-      window.location.href = href; // Redirect the browser to the target URL
-    });
+  // Function to handle click events on anchor tags
+  function handleAnchorClick(event) {
+    // Get the target URL from the link's href attribute
+    var href = $(this).attr('href');
+    // Redirect the browser to the target URL
+    window.location.href = href;
+  }
+
+  // Attach click event handlers to anchor tags with specific classes
+  $('.rep a, .vac a, .date a, .req a, .add a, .lish a, .bookdet a').click(handleAnchorClick);
 });
-  </script>
-  <script>
-    $(document).ready(function() {
-    $('.vac a').click(function(event) {
-      event.preventDefault(); // Prevent default anchor tag behavior (navigation)
-      var href = $(this).attr('href'); // Get the target URL from the link's href attribute
-      window.location.href = href; // Redirect the browser to the target URL
-    });
-});
-  </script>
+</script>
 </div>
 <main>
   <section id="child-det">
   <div class="content">
-<label for="child">Select Available Childrens:</label>
+    <label for="child">Select Available Children:</label>
     <select id="child-names" name="children" required>
-    <?php echo $optionsHTML; ?>
+        <?php echo $optionsHTML; ?>
     </select><br>
   
     <div id="childDetails">
-
+        <!-- This div will be used to display child details -->
     </div>
-     <!-- This div will be used to display child details -->
      <script>
       $('#child-names').change(function() {
-    var childID = $(this).val();
-    $.ajax({
-        url: 'getChildDetails.php',
-        method: 'GET',
-        data: { childID: childID },
-        success: function(response) {
-            $('#childDetails').html(response);
-        },
-        error: function(xhr, status, error) {
-            console.error('AJAX Error: ' + error);
-        }
-    });
-});
+          var childID = $(this).val();
+          $.ajax({
+              url: 'getChildDetails.php', // Assuming getChildDetails.php is the file handling AJAX request
+              method: 'GET',
+              data: { id: childID }, // Sending the selected child ID to the server
+              success: function(response) {
+                  $('#childDetails').html(response);
+              },
+              error: function(xhr, status, error) {
+                  console.error('AJAX Error: ' + error);
+              }
+          });
+      });
      </script>
 </div>
 </section>

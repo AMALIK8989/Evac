@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 27, 2024 at 05:54 PM
+-- Generation Time: Apr 30, 2024 at 05:55 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -34,6 +34,13 @@ CREATE TABLE `admin` (
   `email` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`admin_id`, `username`, `password`, `email`) VALUES
+(1, 'admin', 'admin', 'testadmin@example.com');
+
 -- --------------------------------------------------------
 
 --
@@ -44,8 +51,7 @@ CREATE TABLE `child` (
   `child_id` int(11) NOT NULL,
   `parent_id` int(11) NOT NULL,
   `child_name` varchar(50) NOT NULL,
-  `date_of_birth` date NOT NULL,
-  `age` varchar(50) NOT NULL
+  `date_of_birth` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -69,9 +75,10 @@ CREATE TABLE `child_vaccination` (
 CREATE TABLE `hospital` (
   `hospital_id` int(11) NOT NULL,
   `hospital_name` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
   `address` varchar(255) NOT NULL,
-  `location` varchar(100) NOT NULL,
-  `vaccine_availability` enum('Available','Unavailable') DEFAULT 'Available'
+  `phone` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -148,6 +155,7 @@ CREATE TABLE `request` (
 --
 
 CREATE TABLE `vaccination` (
+  `vaccination_id` int(11) NOT NULL,
   `child_id` int(11) NOT NULL,
   `vaccine_id` int(11) NOT NULL,
   `vaccination_date` date NOT NULL,
@@ -264,6 +272,7 @@ ALTER TABLE `request`
 -- Indexes for table `vaccination`
 --
 ALTER TABLE `vaccination`
+  ADD PRIMARY KEY (`vaccination_id`),
   ADD KEY `child_id` (`child_id`),
   ADD KEY `hospital_id` (`hospital_id`),
   ADD KEY `vaccine_id` (`vaccine_id`);
@@ -282,7 +291,7 @@ ALTER TABLE `vaccination_list`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `child`
@@ -331,6 +340,12 @@ ALTER TABLE `report`
 --
 ALTER TABLE `request`
   MODIFY `request_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `vaccination`
+--
+ALTER TABLE `vaccination`
+  MODIFY `vaccination_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `vaccination_list`
