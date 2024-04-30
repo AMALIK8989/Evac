@@ -62,6 +62,7 @@ Admins have access to a powerful dashboard to manage vaccine status updates and 
 
 - Hassan Saalim (@hassan56562)
 - Huzaifa Farooqi (@Huzaifa-001)
+- Atta E Rabi(@AMALIK8989)
 
 ---
 
