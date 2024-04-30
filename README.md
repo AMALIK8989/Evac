@@ -60,7 +60,7 @@ Admins have access to a powerful dashboard to manage vaccine status updates and 
 
 ## 🌟 Contributors
 
-- Hassan Saalim (@johndoe)
+- Hassan Saalim (@hassan56562)
 - Huzaifa Farooqi (@Huzaifa-001)
 
 ---
