@@ -1,19 +1,26 @@
 # Evac (Emergency Vaccination Appointment Checker)
 
+Evac is your go-to solution for hassle-free vaccination appointment booking during emergencies. Say goodbye to long waiting times and uncertainty – with Evac, booking your vaccination appointment is as easy as a few clicks!
 
-Evac is your go-to solution for booking vaccination appointments during emergencies! With its user-friendly interface and real-time updates, getting vaccinated has never been easier.
+---
 
-## Features 🌟
+## 🚀 Features
 
-- **Real-time Vaccine Status Updates:** Stay informed about vaccine availability at nearby hospitals with live updates.
-- **Effortless Appointment Booking:** Book your vaccination appointment seamlessly based on real-time vaccine availability.
-- **Hospital Dashboard:** Hospitals can efficiently manage vaccine status updates through their dedicated dashboard.
-- **Admin Panel:** Admins have full control over vaccine status updates and appointment management.
+### Real-time Vaccine Status Updates
+Stay up-to-date with the latest vaccine availability at nearby hospitals. Hospitals can quickly update vaccine availability status to ensure accurate information for users.
 
-## Installation Guide 🚀
+### User-friendly Appointment Booking
+Easily book your vaccination appointment based on real-time vaccine availability at nearby hospitals. No more endless phone calls or frustrating wait times – Evac makes booking appointments a breeze!
 
-1. **Clone the Repository:** Clone the Evac repository to your local machine using the command:
-   ```
+### Efficient Management
+Admins have access to a powerful dashboard to manage vaccine status updates and appointment bookings effectively. Keep everything running smoothly with Evac's intuitive management system.
+
+---
+
+## 🛠️ Installation Guide
+
+1. **Clone Repository:** Clone the Evac repository to your local machine:
+   ```bash
    git clone https://github.com/yourusername/evac.git
    ```
 
@@ -22,22 +29,26 @@ Evac is your go-to solution for booking vaccination appointments during emergenc
 3. **Configure Database Connection:** Update the database connection details in the `conn.php` file to match your local environment.
 
 4. **Run the Application:** Navigate to the project directory and start the PHP server:
-   ```
+   ```bash
    cd evac
    php -S localhost:8000
    ```
 
 5. **Access the Application:** Open your web browser and go to `http://localhost:8000` to access the Evac application.
 
-## Usage 🚀
+---
+
+## 📚 Usage
 
 1. **Hospital Dashboard:** Hospitals can log in to their dashboard to update the availability status of vaccines.
 
-2. **User Dashboard:** Users can view real-time vaccine availability status and book appointments hassle-free.
+2. **User Dashboard:** Users can view vaccine availability status and book appointments through the user dashboard.
 
-3. **Admin Panel:** Admins have access to a powerful admin panel to manage vaccine status updates and appointment bookings effortlessly.
+3. **Admin Panel:** Admins have access to an admin panel to manage vaccine status updates and appointment bookings.
 
-## Technologies Used 🛠️
+---
+
+## 🛠️ Technologies Used
 
 - HTML
 - CSS
@@ -45,19 +56,25 @@ Evac is your go-to solution for booking vaccination appointments during emergenc
 - PHP
 - MySQL
 
-## Contributors 👩‍💻
+---
 
-- HuzaifaFarooqui (@Huzaifa-001)
-- Hassan Saalim (@hassan56562)
+## 🌟 Contributors
 
-## Support 📧
-
-For any issues or inquiries, please contact support@evac.com or open an issue on GitHub.
-
-## License 📄
-
-This project is licensed under the MIT License. See the `LICENSE` file for more details.
+- John Doe (@johndoe)
+- Jane Smith (@janesmith)
 
 ---
 
-**Get vaccinated, stay safe, and enjoy the journey with Evac!** 🚀💉🏥
+## 📧 Support
+
+For any issues or inquiries, please contact support@evac.com or open an issue on GitHub.
+
+---
+
+## 📄 License
+
+This project is licensed under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).
+
+---
+
+**Happy Vaccinating with Evac!** 🚀🩹💉
