@@ -140,30 +140,30 @@ $(document).ready(function() {
 </html>
 <?php
 if(isset($_POST['login'])){
-  $email = $_POST['email1']; // Assuming email field is named 'email1'
-  $pass1 = $_POST['password1']; // Assuming password field is named 'password1'
+    $email = $_POST['email1'];
+    $pass1 = $_POST['password1'];
 
-  // Select user from the database using the provided email
-  $query = "SELECT * FROM `parent` WHERE `email` = '$email'";
-  $result = mysqli_query($con, $query);
+    // Select user from the database using the provided email
+    $sel = "SELECT * FROM parent WHERE email='$email'";
+    $res = mysqli_query($con, $sel);
 
-  if($result > 0){
-      $user = mysqli_fetch_assoc($result);
-      $hashed_password = $user['password']; // Assuming column name is 'password'
-
-      // Verify the provided password with the hashed password from the database
-      if(password_verify($pass1, $hashed_password)){
-          // Passwords match, set session and redirect to dashboard
-          $_SESSION['abc'] = $user['fullname']; // Assuming column name is 'fullname'
-          header("location: parent-dashboard.php");
-          exit; // Stop further execution after redirecting
-      } else {
-          // Passwords don't match, show alert
-          echo "<script>alert('Password does not match');</script>";
-      }
-  } else {
-      // User not found, show alert
-      echo "<script>alert('Email is not registered');</script>";
-  }
+    // Check if the user exists
+    if(mysqli_num_rows($res) > 0){
+        $fe = mysqli_fetch_assoc($res);
+        // Verify the provided password with the hashed password from the database
+        $dbpass = $fe['password']; // Assuming the column name is 'password' in your database
+        if(password_verify($pass1, $dbpass)){
+            // Passwords match, set session and redirect to dashboard
+            $_SESSION['abc'] = $fe['name'];
+            header("location: parent-dashboard.php");
+            exit; // Stop further execution after redirecting
+        } else {
+          // Passwords don't match, show alert
+          echo "<script>alert('Password does not match');</script>";
+      }
+  } else {
+      // User not found, show alert
+      echo "<script>alert('Email is not registered');</script>";
+  }
 }
 ?>
