@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 30, 2024 at 05:55 PM
+-- Generation Time: May 02, 2024 at 05:59 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -102,10 +102,19 @@ CREATE TABLE `hospital_vaccination` (
 
 CREATE TABLE `parent` (
   `parent_id` int(11) NOT NULL,
-  `username` varchar(50) NOT NULL,
+  `fullname` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
-  `email` varchar(100) NOT NULL
+  `repassword` varchar(50) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `email1` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `parent`
+--
+
+INSERT INTO `parent` (`parent_id`, `fullname`, `password`, `repassword`, `email`, `email1`) VALUES
+(1, 'Yusuf Khan', '$2y$10$Bx/yklfIA2Dvy97dpuSyOO0JdYn62OyFBBnKrRI.xu1', '123', 'yusufkhan284@email.net', 'yusufkhan284@email.net');
 
 -- --------------------------------------------------------
 
@@ -321,7 +330,7 @@ ALTER TABLE `hospital_vaccination`
 -- AUTO_INCREMENT for table `parent`
 --
 ALTER TABLE `parent`
-  MODIFY `parent_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `parent_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `parent_booking`

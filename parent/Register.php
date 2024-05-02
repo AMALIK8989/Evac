@@ -114,12 +114,12 @@ a {
 <!-- Navbar -->
 <div class="navbar">
   <ul>
-    <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+    <!-- <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
     <li><a href="#"><i class="fas fa-child"></i>Our Purpose</a></li>
     <li><a href="#"><i class="fas fa-calendar-alt"></i> Vaccination Dates</a></li>
     <li><a href="#"><i class="fas fa-hospital"></i> Book Hospital</a></li>
     <li><a href="#"><i class="fas fa-hospital"></i> Request for Hospital</a></li>
-    <li><a href="#"><i class="fas fa-file-medical"></i> Report of Vaccination Taken</a></li>
+    <li><a href="#"><i class="fas fa-file-medical"></i> Report of Vaccination Taken</a></li> -->
     <li><a href="#register"><i class="fas fa-user-plus"></i> Register & Login</a></li>
   </ul>
 </div>
@@ -149,29 +149,32 @@ if(isset($_POST['sub'])){
     $email = $_POST['email'];
     $email1 = $_POST['email1'];
     $pass = $_POST['password'];
-    $pass1 = $_POST['password1']; // Corrected input name for retype password
+    $pass1 = $_POST['password1'];
 
     // Check if passwords match
     if($pass !== $pass1) {
         echo "Passwords do not match";
         exit; // Stop further execution
     }
+
+    // Check if emails match
     if($email !== $email1) {
-        echo "email do not match";
+        echo "Emails do not match";
         exit; // Stop further execution
     }
 
+    // Hash the password
     $hashed_password = password_hash($pass, PASSWORD_BCRYPT);
 
     // Check if email already exists
-    $el = "SELECT * FROM parent WHERE email='$email1'";
+    $el = "SELECT * FROM parent WHERE email='$email'";
     $res = mysqli_query($con, $el);
     $num = mysqli_num_rows($res);
     if($num > 0){
         echo "Email already exists.";
     } else {
         // Insert new user into database
-        $qq = "INSERT INTO Parent (fullname, password, repassword, email) VALUES ('$name','$hashed_password','$pass1','$email1')";
+        $qq = "INSERT INTO Parent (fullname, password, repassword, email, email1) VALUES ('$name', '$hashed_password', '$pass1', '$email', '$email1')";
         $a = mysqli_query($con, $qq);
         if($a) {
             header("location: login.php");

@@ -98,16 +98,29 @@ session_start();
 <!-- Navbar -->
 <div class="navbar">
   <ul>
-    <li><a href="#"><i class="fas fa-user-plus"></i> Register & Login</a></li>
-    <li><a href="#"><i class="fas fa-child"></i> Details of Child</a></li>
+    <li class="reg"><a href="./Register.php"><i class="fas fa-user-plus"></i> Register & Login</a></li>
+    <!-- <li><a href="#"><i class="fas fa-child"></i> Details of Child</a></li>
     <li><a href="#"><i class="fas fa-calendar-alt"></i> Vaccination Dates</a></li>
     <li><a href="#"><i class="fas fa-hospital"></i> Book Hospital</a></li>
     <li><a href="#"><i class="fas fa-hospital"></i> Request for Hospital</a></li>
     <li><a href="#"><i class="fas fa-file-medical"></i> Report of Vaccination Taken</a></li>
-    <li><a href="#"><i class="fas fa-user-circle"></i> My Profile</a></li>
+    <li><a href="#"><i class="fas fa-user-circle"></i> My Profile</a></li> -->
   </ul>
 </div>
+<script>
+$(document).ready(function() {
+  // Function to handle click events on anchor tags
+  function handleAnchorClick(event) {
+    // Get the target URL from the link's href attribute
+    var href = $(this).attr('href');
+    // Redirect the browser to the target URL
+    window.location.href = href;
+  }
 
+  // Attach click event handlers to anchor tags with specific classes
+  $('.reg a,').click(handleAnchorClick);
+});
+</script>
 <!-- Main Content -->
 <div class="container">
   <h2>Parent Login</h2>
@@ -127,30 +140,30 @@ session_start();
 </html>
 <?php
 if(isset($_POST['login'])){
-  $email = $_POST['email1'];
-  $pass1 = $_POST['password1'];
+  $email = $_POST['email1']; // Assuming email field is named 'email1'
+  $pass1 = $_POST['password1']; // Assuming password field is named 'password1'
 
   // Select user from the database using the provided email
-  $sel = "SELECT * FROM parent WHERE email='$email'";
-  $res = mysqli_query($con, $sel);
+  $query = "SELECT * FROM `parent` WHERE `email` = '$email'";
+  $result = mysqli_query($con, $query);
 
-  // Check if the user exists
-  if(mysqli_num_rows($res) > 0){
-      $fe = mysqli_fetch_assoc($res);
+  if($result > 0){
+      $user = mysqli_fetch_assoc($result);
+      $hashed_password = $user['password']; // Assuming column name is 'password'
+
       // Verify the provided password with the hashed password from the database
-      $dbpass = $fe['password']; // Assuming the column name is 'password' in your database
-      if(password_verify($pass1, $dbpass)){
+      if(password_verify($pass1, $hashed_password)){
           // Passwords match, set session and redirect to dashboard
-          $_SESSION['abc'] = $fe['name'];
+          $_SESSION['abc'] = $user['fullname']; // Assuming column name is 'fullname'
           header("location: parent-dashboard.php");
           exit; // Stop further execution after redirecting
       } else {
-          // Passwords don't match
-          echo "Password does not match";
+          // Passwords don't match, show alert
+          echo "<script>alert('Password does not match');</script>";
       }
   } else {
-      // User not found
-      echo "Email is not registered";
+      // User not found, show alert
+      echo "<script>alert('Email is not registered');</script>";
   }
 }
 ?>
