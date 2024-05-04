@@ -48,10 +48,11 @@ INSERT INTO `admin` (`admin_id`, `username`, `password`, `email`) VALUES
 --
 
 CREATE TABLE `child` (
-  `child_id` int(11) NOT NULL,
+  `child_id` int(11) NOT NULL AUTO_INCREMENT,
   `parent_id` int(11) NOT NULL,
   `child_name` varchar(50) NOT NULL,
-  `date_of_birth` date NOT NULL
+  `gender` varchar(50) NOT NULL,
+  `Child_age` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -73,7 +74,7 @@ CREATE TABLE `child_vaccination` (
 --
 
 CREATE TABLE `hospital` (
-  `hospital_id` int(11) NOT NULL,
+  `hospital_id` int(11) NOT NULL AUTO_INCREMENT ,
   `hospital_name` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
