@@ -23,7 +23,7 @@ Evac is a Vaccination Management System designed to streamline the vaccination p
 ## Support
 For any issues or inquiries, please contact us or open an issue on GitHub.
 
-For sale: $750, £650, €750, PKR 250,000 (MD5: [Amalik8989@gmail.com])
+For sale: $750, £650, €750, PKR 250,000 (MD5: [Amalik8989@gmail.com]) (MD5: [farooquihuzaifa998@gmail.com@gmail.com])
 
 ## License
 This project is licensed under the Apache License 2.0.
